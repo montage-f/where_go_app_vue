@@ -7,3 +7,5 @@ import './iconfont/iconfont.css';
 import './reset.less';
 // 引入 边框1px 解决方案
 import './border.less';
+// 引入 vant css样式
+import 'vant/lib/index.css';
