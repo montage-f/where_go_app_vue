@@ -44,12 +44,11 @@
         methods: {
             async init() {
                 const {data: {data}} = await this.$axios.get('/api/index.json');
-                const {hotList, iconList, swiperList, topIcon, weekendList} = data;
+                const {hotList, iconList, swiperList, weekendList} = data;
                 this.images = swiperList;
                 this.iconList = iconList;
                 this.hotList = hotList;
                 this.weekendList = weekendList;
-                console.log(weekendList);
             },
         },
     };

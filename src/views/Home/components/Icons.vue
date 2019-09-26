@@ -60,9 +60,7 @@
 
 <style scoped lang="less">
     .Icons {
-        height: 316px;
         width: 100%;
-
         /deep/ .van-swipe-item {
             width: 100%;
             display: flex;

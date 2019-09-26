@@ -67,12 +67,12 @@
 
             .item-title {
                 line-height: 1.08rem;
-                font-size: .64rem;
                 .ellipsis();
             }
 
             .item-desc {
                 line-height: 1.2rem;
+                font-size: .64rem;
                 color: #ccc;
                 .ellipsis();
             }
