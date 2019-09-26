@@ -10,7 +10,7 @@
                 :key="index"
             >
                 <div class="icon"
-                     v-for="item of itemList"
+                     v-for="(item,index) of itemList"
                      :key="index"
                 >
                     <span></span>

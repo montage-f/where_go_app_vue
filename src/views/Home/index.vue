@@ -7,6 +7,8 @@
             </SwipeItem>
         </Swipe>
         <Icons></Icons>
+        <Recommend></Recommend>
+        <Weekend></Weekend>
     </div>
 </template>
 
@@ -14,6 +16,8 @@
     // @ is an alias to /src
     import Header from '@/views/Home/components/Header';
     import Icons from '@/views/Home/components/Icons';
+    import Recommend from '@/views/Home/components/Recommend';
+    import Weekend from '@/views/Home/components/Weekend';
     import {Swipe, SwipeItem} from 'vant';
 
     export default {
@@ -23,6 +27,8 @@
             Icons,
             Swipe,
             SwipeItem,
+            Recommend,
+            Weekend
         },
         data() {
             return {
