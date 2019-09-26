@@ -6,9 +6,9 @@
                 <img :src="item" alt="">
             </SwipeItem>
         </Swipe>
-        <Icons></Icons>
-        <Recommend></Recommend>
-        <Weekend></Weekend>
+        <Icons :iconList="iconList"></Icons>
+        <Recommend :hotList="hotList"></Recommend>
+        <Weekend :weekendList="weekendList"></Weekend>
     </div>
 </template>
 
@@ -28,17 +28,29 @@
             Swipe,
             SwipeItem,
             Recommend,
-            Weekend
+            Weekend,
         },
         data() {
             return {
-                images: [
-                    'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20199/0fa39f9f5e66189e85b5c6e54278587d.jpg_750x200_86c8f2d8.jpg',
-                    'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20199/ec181bec292abc847f16f50d02311db6.jpg_750x200_2b910352.jpg',
-                    'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20199/249dfa53de67b8824a96f9821e58f30d.jpg_750x200_48bf24d9.jpg',
-                    'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20199/502edc9723264c9dc53d26d2ca9680e0.jpg_750x200_b4981e1c.jpg',
-                ],
+                images: [],
+                iconList: [],
+                hotList: [],
+                weekendList: [],
             };
+        },
+        created() {
+            this.init();
+        },
+        methods: {
+            async init() {
+                const {data: {data}} = await this.$axios.get('/api/index.json');
+                const {hotList, iconList, swiperList, topIcon, weekendList} = data;
+                this.images = swiperList;
+                this.iconList = iconList;
+                this.hotList = hotList;
+                this.weekendList = weekendList;
+                console.log(weekendList);
+            },
         },
     };
 </script>

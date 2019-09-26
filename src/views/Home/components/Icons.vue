@@ -13,7 +13,7 @@
                      v-for="(item,index) of itemList"
                      :key="index"
                 >
-                    <span></span>
+                    <img :src="item.imgUrl" alt="">
                     <p>{{item.title}}</p>
                 </div>
             </SwipeItem>
@@ -26,43 +26,18 @@
 
     export default {
         name: 'Icons',
+        props: {
+            iconList: {
+                type: Array,
+                default: () => ([]),
+            },
+        },
         components: {
             Swipe,
             SwipeItem,
         },
         data() {
-            return {
-                iconList: [
-                    {
-                        title: '签证·wifi',
-                        class: '',
-                    }, {
-                        title: '出境游',
-                        class: '',
-                    }, {
-                        title: '一日游',
-                        class: '',
-                    }, {
-                        title: '美食林',
-                        class: '',
-                    }, {
-                        title: '汽车票',
-                        class: '',
-                    }, {
-                        title: '邮轮游',
-                        class: '',
-                    }, {
-                        title: '超级巴士',
-                        class: '',
-                    }, {
-                        title: '攻略',
-                        class: '',
-                    }, {
-                        title: '第二页',
-                        class: '',
-                    },
-                ],
-            };
+            return {};
         },
         created() {
         },
@@ -88,25 +63,24 @@
         height: 316px;
         width: 100%;
 
-        .van-swipe-item {
+        /deep/ .van-swipe-item {
             width: 100%;
             display: flex;
             flex-wrap: wrap-reverse;
         }
 
         .icon {
-            float: left;
             width: 25%;
             height: 50%;
             display: flex;
+            align-items: center;
             flex-direction: column;
             font-size: 32px;
 
-            span {
+            img {
                 display: block;
-                height: 120px;
+                width: 50%;
                 margin-bottom: 10px;
-                background: url('http://s.qunarzz.com/touch_home/images/entrances.png') no-repeat -90px -60px;
             }
 
             p {

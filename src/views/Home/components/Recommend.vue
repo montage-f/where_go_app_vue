@@ -4,7 +4,7 @@
         <div class="title">热销推荐</div>
         <ul>
             <li class="item border-bottom"
-                v-for="(item,index) of recommendList"
+                v-for="(item,index) of hotList"
                 :key="index">
                 <img
                     :src="item.imgUrl"
@@ -12,7 +12,7 @@
                 />
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
-                    <p class="item-desc">{{item.desc}}</p>
+                    <p class="item-desc">{{item.price}}</p>
                     <button class="item-button">查看详情</button>
                 </div>
             </li>
@@ -23,45 +23,15 @@
 <script>
     export default {
         name: 'Recommend',
+        props: {
+            hotList: {
+                type: Array,
+                default: () => ([]),
+            },
+        },
         components: {},
         data() {
-            return {
-                recommendList: [
-                    {
-                        title: '阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评',
-                        desc: '马尔代夫阿玛瑞豪沃达度假酒店',
-                        imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vs_tts/5d0a54f9-6e1a-421d-a58d-b73505a0b7fe.jpg_180x120_61932a4f.jpg',
-                    },{
-                        title: '阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评',
-                        desc: '马尔代夫阿玛瑞豪沃达度假酒店',
-                        imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vs_tts/5d0a54f9-6e1a-421d-a58d-b73505a0b7fe.jpg_180x120_61932a4f.jpg',
-                    },{
-                        title: '阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评',
-                        desc: '马尔代夫阿玛瑞豪沃达度假酒店',
-                        imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vs_tts/5d0a54f9-6e1a-421d-a58d-b73505a0b7fe.jpg_180x120_61932a4f.jpg',
-                    },{
-                        title: '阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评',
-                        desc: '马尔代夫阿玛瑞豪沃达度假酒店',
-                        imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vs_tts/5d0a54f9-6e1a-421d-a58d-b73505a0b7fe.jpg_180x120_61932a4f.jpg',
-                    },{
-                        title: '阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评',
-                        desc: '马尔代夫阿玛瑞豪沃达度假酒店',
-                        imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vs_tts/5d0a54f9-6e1a-421d-a58d-b73505a0b7fe.jpg_180x120_61932a4f.jpg',
-                    },{
-                        title: '阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评',
-                        desc: '马尔代夫阿玛瑞豪沃达度假酒店',
-                        imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vs_tts/5d0a54f9-6e1a-421d-a58d-b73505a0b7fe.jpg_180x120_61932a4f.jpg',
-                    },{
-                        title: '阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评',
-                        desc: '马尔代夫阿玛瑞豪沃达度假酒店',
-                        imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vs_tts/5d0a54f9-6e1a-421d-a58d-b73505a0b7fe.jpg_180x120_61932a4f.jpg',
-                    },{
-                        title: '阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评阿玛瑞岛 满分好评',
-                        desc: '马尔代夫阿玛瑞豪沃达度假酒店',
-                        imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vs_tts/5d0a54f9-6e1a-421d-a58d-b73505a0b7fe.jpg_180x120_61932a4f.jpg',
-                    },
-                ],
-            };
+            return {};
         },
         created() {
         },
