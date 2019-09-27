@@ -8,9 +8,9 @@
             <i class="iconfont">&#xe607;</i>
             输入城市/游玩/景点主题
         </div>
-        <div class="header-right">
+        <router-link to="/city" tag="div" class="header-right">
             城市<i class="iconfont">&#xe608;</i>
-        </div>
+        </router-link>
     </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="Home">
         <Header />
         <Swipe :autoplay="3000" indicator-color="white">
             <SwipeItem v-for="item of images" :key="item">
@@ -21,7 +21,7 @@
     import {Swipe, SwipeItem} from 'vant';
 
     export default {
-        name: 'home',
+        name: 'Home',
         components: {
             Header,
             Icons,
@@ -54,7 +54,7 @@
     };
 </script>
 <style lang="less" scoped>
-    .home {
+    .Home {
         width: 100%;
 
         /deep/ .van-swipe__indicator {
