@@ -2,7 +2,7 @@
 <template>
     <div class="Search">
         <div class="search-write">
-            <label for="">
+            <label>
                 <input
                     class="search-input"
                     type="text"
@@ -89,6 +89,7 @@
             ]),
             handleClickCity({name}) {
                 this[types.SET_CITY](name);
+                this.keyword = '';
             },
         },
     };

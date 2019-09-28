@@ -41,6 +41,14 @@
         created() {
             this.init();
         },
+        // 当使用activated的时候, 每一个组件都会多两个声明周期函数,
+        // 一个是activated, 另一个是deactivated
+        activated() {
+            const {path} = this.$route;
+            if (path === '/') {
+                this.init();
+            }
+        },
         methods: {
             async init() {
                 const {data: {data}} = await this.$axios.get('/api/index.json');
