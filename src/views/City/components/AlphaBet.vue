@@ -1,22 +1,23 @@
 /**Created by montage_fz on 2019-09-28**/
 <template>
     <ul class="AlphaBet">
-        <li>A</li>
-        <li>A</li>
-        <li>A</li>
-        <li>A</li>
-        <li>A</li>
-        <li>A</li>
-        <li>A</li>
-        <li>A</li>
-        <li>A</li>
-        <li>A</li>
+        <li
+            v-for="(item,key) of cities"
+            :key="key">
+            {{key}}
+        </li>
     </ul>
 </template>
 
 <script>
     export default {
         name: 'AlphaBet',
+        props: {
+            cities: {
+                type: Object,
+                default: () => ({}),
+            },
+        },
         components: {},
         data() {
             return {};

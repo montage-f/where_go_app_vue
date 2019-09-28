@@ -17,22 +17,28 @@
             <Cell class="area">
                 <div class="title border-topbottom">热门城市</div>
                 <div class="button-list">
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
+                    <div
+                        class="button-wrapper"
+                        v-for="(item,index) of hotCities"
+                        :key="index"
+                    >
+                        <div class="button">{{item.name}}</div>
                     </div>
                 </div>
             </Cell>
-            <Cell class="area">
-                <div class="title border-topbottom">A</div>
+            <Cell
+                class="area"
+                v-for="(item , key,index) of cities"
+                :key="index"
+            >
+                <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list">
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
+                    <div
+                        class="item border-bottom"
+                        v-for="(innerItem,index) of item"
+                        :key="index"
+                    >
+                        {{innerItem.name}}
                     </div>
                 </div>
             </Cell>
@@ -143,6 +149,16 @@
 
     export default {
         name: 'List',
+        props: {
+            cities: {
+                type: Object,
+                default: () => ({}),
+            },
+            hotCities: {
+                type: Array,
+                default: () => ([]),
+            },
+        },
         components: {
             VanList: List,
             Cell,
