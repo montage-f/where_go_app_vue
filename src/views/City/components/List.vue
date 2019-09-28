@@ -1,36 +1,33 @@
 /**Created by montage_fz on 2019-09-27**/
 <template>
-    <div class="List">
-        <VanList
-            v-model="loading"
-            :finished="finished"
-            finished-text="没有更多了"
-            @load="onLoad">
-            <Cell class="area">
-                <div class="title border-topbottom">当前城市</div>
-                <div class="button-list">
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
+    <IndexBar class="List">
+        <Cell class="area">
+            <div class="title border-topbottom">当前城市</div>
+            <div class="button-list">
+                <div class="button-wrapper">
+                    <div class="button">北京</div>
                 </div>
-            </Cell>
-            <Cell class="area">
-                <div class="title border-topbottom">热门城市</div>
-                <div class="button-list">
-                    <div
-                        class="button-wrapper"
-                        v-for="(item,index) of hotCities"
-                        :key="index"
-                    >
-                        <div class="button">{{item.name}}</div>
-                    </div>
+            </div>
+        </Cell>
+        <Cell class="area">
+            <div class="title border-topbottom">热门城市</div>
+            <div class="button-list">
+                <div
+                    class="button-wrapper"
+                    v-for="(item,index) of hotCities"
+                    :key="index"
+                >
+                    <div class="button">{{item.name}}</div>
                 </div>
-            </Cell>
-            <Cell
-                class="area"
-                v-for="(item , key,index) of cities"
-                :key="index"
-            >
+            </div>
+        </Cell>
+        <template
+            v-for="(item,key,index) of cities"
+        >
+            <index-anchor
+                :index="key"
+                :key="key" />
+            <Cell class="area" :key="index">
                 <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list">
                     <div
@@ -42,110 +39,12 @@
                     </div>
                 </div>
             </Cell>
-            <Cell class="area">
-                <div class="title border-topbottom">A</div>
-                <div class="item-list">
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                </div>
-            </Cell>
-            <Cell class="area">
-                <div class="title border-topbottom">A</div>
-                <div class="item-list">
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                </div>
-            </Cell>
-            <Cell class="area">
-                <div class="title border-topbottom">A</div>
-                <div class="item-list">
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                </div>
-            </Cell>
-            <Cell class="area">
-                <div class="title border-topbottom">A</div>
-                <div class="item-list">
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                </div>
-            </Cell>
-            <Cell class="area">
-                <div class="title border-topbottom">A</div>
-                <div class="item-list">
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                </div>
-            </Cell>
-            <Cell class="area">
-                <div class="title border-topbottom">A</div>
-                <div class="item-list">
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                </div>
-            </Cell>
-            <Cell class="area">
-                <div class="title border-topbottom">A</div>
-                <div class="item-list">
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                    <div class="item border-bottom">
-                        阿拉尔
-                    </div>
-                </div>
-            </Cell>
-        </VanList>
-    </div>
+        </template>
+    </IndexBar>
 </template>
 
 <script>
-    import {List, Cell} from 'vant';
+    import {IndexBar, IndexAnchor, Cell} from 'vant';
 
     export default {
         name: 'List',
@@ -160,8 +59,9 @@
             },
         },
         components: {
-            VanList: List,
             Cell,
+            IndexBar,
+            IndexAnchor,
         },
         data() {
             return {
@@ -172,23 +72,9 @@
         },
         created() {
         },
-        computed: {},
+        computed: {
+        },
         methods: {
-            onLoad() {
-                // 异步更新数据
-                setTimeout(() => {
-                    for (let i = 0; i < 10; i++) {
-                        this.list.push(this.list.length + 1);
-                    }
-                    // 加载状态结束
-                    this.loading = false;
-
-                    // 数据全部加载完成
-                    if (this.list.length >= 40) {
-                        this.finished = true;
-                    }
-                }, 500);
-            },
         },
     };
 </script>
@@ -234,6 +120,11 @@
             }
         }
 
+        /deep/ .van-index-bar__index {
+            font-size: 20px;
+            padding: 10px 0;
+        }
+
         .item-list {
             .item {
                 line-height: .76*2rem;
@@ -241,11 +132,9 @@
             }
         }
 
-        .van-list {
-            .van-cell.area {
-                padding: 0;
-                font-size: 30px;
-            }
+        .van-cell.area {
+            padding: 0;
+            font-size: 30px;
         }
     }
 </style>

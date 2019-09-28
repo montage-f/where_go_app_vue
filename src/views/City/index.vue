@@ -7,9 +7,6 @@
             :cities="cities"
             :hotCities="hotCities"
         ></List>
-        <AlphaBet
-            :cities="cities"
-        ></AlphaBet>
     </div>
 </template>
 
@@ -18,7 +15,6 @@
     import Header from './components/Header';
     import Search from './components/Search';
     import List from './components/List';
-    import AlphaBet from './components/AlphaBet';
 
     export default {
         name: 'City',
@@ -26,7 +22,6 @@
             Header,
             Search,
             List,
-            AlphaBet,
         },
         data() {
             return {
