@@ -2,7 +2,7 @@
 <template>
     <div class="City">
         <Header></Header>
-        <Search></Search>
+        <Search :cities="cities"></Search>
         <List
             :cities="cities"
             :hotCities="hotCities"
