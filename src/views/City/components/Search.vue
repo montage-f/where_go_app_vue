@@ -13,13 +13,17 @@
         </div>
         <div class="content" v-if="keyword">
             <ul>
-                <li
+                <router-link
+                    tag="li"
                     class="search-item border-bottom"
                     v-for="(item,index) of list"
                     :key="index"
+                    to="/"
                 >
-                    {{item.name}}
-                </li>
+                    <p @click="handleClickCity(item)">
+                        {{item.name}}
+                    </p>
+                </router-link>
                 <li
                     class="search-item border-bottom"
                     v-if="hasList"
@@ -32,6 +36,9 @@
 </template>
 
 <script>
+    import {mapMutations} from 'vuex';
+    import {types} from '@/store';
+
     export default {
         name: 'Search',
         props: {
@@ -59,14 +66,14 @@
                 }
                 this.timer = setTimeout(() => {
                     this.list = Object.keys(this.cities)
-                    .reduce((p, i) => {
-                        return [...p, ...this.cities[i]];
-                    }, [])
-                    .reduce((p, i) => {
-                        const isTrue = i.name.includes(value) || i.spell.includes(value);
-                        isTrue && p.push(i);
-                        return p;
-                    }, []);
+                        .reduce((p, i) => {
+                            return [...p, ...this.cities[i]];
+                        }, [])
+                        .reduce((p, i) => {
+                            const isTrue = i.name.includes(value) || i.spell.includes(value);
+                            isTrue && p.push(i);
+                            return p;
+                        }, []);
                     this.timer = null;
                 }, 300);
             },
@@ -76,7 +83,14 @@
                 return !this.list.length;
             },
         },
-        methods: {},
+        methods: {
+            ...mapMutations([
+                types.SET_CITY,
+            ]),
+            handleClickCity({name}) {
+                this[types.SET_CITY](name);
+            },
+        },
     };
 </script>
 

@@ -5,20 +5,25 @@
             <div class="title border-topbottom">当前城市</div>
             <div class="button-list">
                 <div class="button-wrapper">
-                    <div class="button">北京</div>
+                    <div class="button">{{city}}</div>
                 </div>
             </div>
         </Cell>
         <Cell class="area">
             <div class="title border-topbottom">热门城市</div>
             <div class="button-list">
-                <div
+                <router-link
                     class="button-wrapper"
+                    tag="div"
                     v-for="(item,index) of hotCities"
                     :key="index"
+                    to="/"
                 >
-                    <div class="button">{{item.name}}</div>
-                </div>
+                    <div class="button"
+                         @click="handleClickCity(item)">
+                        {{item.name}}
+                    </div>
+                </router-link>
             </div>
         </Cell>
         <template
@@ -30,13 +35,17 @@
             <Cell class="area" :key="index">
                 <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list">
-                    <div
+                    <router-link
                         class="item border-bottom"
+                        tag="div"
                         v-for="(innerItem,index) of item"
                         :key="index"
+                        to="/"
                     >
-                        {{innerItem.name}}
-                    </div>
+                        <p @click="handleClickCity(innerItem)">
+                            {{innerItem.name}}
+                        </p>
+                    </router-link>
                 </div>
             </Cell>
         </template>
@@ -44,6 +53,8 @@
 </template>
 
 <script>
+    import {mapState, mapMutations} from 'vuex';
+    import {types} from '@/store';
     import {IndexBar, IndexAnchor, Cell} from 'vant';
 
     export default {
@@ -73,8 +84,17 @@
         created() {
         },
         computed: {
+            ...mapState({
+                city: state => state.city,
+            }),
         },
         methods: {
+            ...mapMutations([
+                types.SET_CITY,
+            ]),
+            handleClickCity({name}) {
+                this[types.SET_CITY](name);
+            },
         },
     };
 </script>
