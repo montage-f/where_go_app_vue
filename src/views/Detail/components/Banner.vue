@@ -77,7 +77,7 @@
                 font-size: .84rem;
                 align-items: center;
                 color: #fff;
-                background-image: linear-gradient(to-top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
 
                 .title {
                     flex: 1;
