@@ -1,7 +1,6 @@
 /**
  * Created by montage_fz on 2019-09-28
  */
-import Value from 'less/lib/less/tree/value';
 
 export default {
     get(key) {

@@ -3,9 +3,13 @@
     <div class="Recommend">
         <div class="title">热销推荐</div>
         <ul>
-            <li class="item border-bottom"
+            <router-link
+                class="item border-bottom"
+                tag="li"
                 v-for="(item,index) of hotList"
-                :key="index">
+                :key="index"
+                :to="`/detail/${index}`"
+            >
                 <img
                     :src="item.imgUrl"
                     alt="" class="item-img"
@@ -15,7 +19,7 @@
                     <p class="item-desc">{{item.price}}</p>
                     <button class="item-button">查看详情</button>
                 </div>
-            </li>
+            </router-link>
         </ul>
     </div>
 </template>
