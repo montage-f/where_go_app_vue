@@ -17,21 +17,26 @@
                 </div>
             </div>
         </div>
-        <Gallery
-            v-if="showGallery"
-            :imgs="imgs"
-            @closeGallery="closeGallery"
-        ></Gallery>
+        <FadeAnimation>
+            <Gallery
+                v-if="showGallery"
+                :imgs="imgs"
+                @closeGallery="closeGallery"
+            ></Gallery>
+        </FadeAnimation>
+
     </div>
 </template>
 
 <script>
     import Gallery from '@/components/common/Gallery';
+    import FadeAnimation from '@/components/common/Fade';
 
     export default {
         name: 'Banner',
         components: {
             Gallery,
+            FadeAnimation,
         },
         data() {
             return {
