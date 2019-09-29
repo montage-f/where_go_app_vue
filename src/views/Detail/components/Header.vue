@@ -27,8 +27,13 @@
                 opacity: 0,
             };
         },
-        mounted() {
+        activated() {
+            // 监听scroll事件
             window.addEventListener('scroll', this.handleScroll);
+        },
+        deactivated() {
+            // 移除window上面的scroll事件
+            window.removeEventListener('scroll', this.handleScroll);
         },
         computed: {},
         methods: {
