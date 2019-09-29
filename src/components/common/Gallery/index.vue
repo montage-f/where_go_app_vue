@@ -70,6 +70,7 @@
         display: flex;
         align-items: center;
         color: #fff;
+        z-index: 2;
 
         .wrapper {
             width: 100%;

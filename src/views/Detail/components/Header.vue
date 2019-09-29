@@ -9,7 +9,7 @@
         </div>
         <div class="fixed"
              v-else
-             :style="{opacity:opacity}"
+             :style="{opacity}"
         >
             <i class="iconfont icon" @click="$router.go(-1)">&#xe6a5;</i>
             景点详情
@@ -51,6 +51,7 @@
     @import "~@/styles/variable.less";
 
     .Header {
+
         .abs {
             position: absolute;
             left: .4rem;
@@ -60,6 +61,7 @@
             border-radius: .6rem;
             background: rgba(0, 0, 0, .8);
             text-align: center;
+            z-index: 1;
 
             .icon {
                 color: #fff;
