@@ -23,35 +23,24 @@
         },
         data() {
             return {
-                list: [{
-                    title: '成人票',
-                    children: [{
-                        title: '成人三馆门票',
-                        children: [{
-                            title: '成人3馆门票',
-                        }, {
-                            title: '成人5馆门票',
-                        }, {
-                            title: '成人8馆门票',
-                        }],
-                    }, {
-                        title: '成人五馆门票',
-                    }, {
-                        title: '成人八馆门票',
-                    }],
-                }, {
-                    title: '学生票',
-                }, {
-                    title: '儿童票',
-                }, {
-                    title: '特惠票',
-                }],
+                list: [],
             };
         },
         created() {
+            this.init();
         },
         computed: {},
-        methods: {},
+        watch: {
+        },
+        methods: {
+            async init() {
+                const {id} = this.$route.params;
+                const {data: {data: {categoryList}}} = await this.$axios.get('/api/detail.json', {
+                    params: {id},
+                });
+                this.list = categoryList;
+            },
+        },
     };
 </script>
 
