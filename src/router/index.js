@@ -2,7 +2,6 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/views/Home/';
 import City from '@/views/City';
-import Detail from '@/views/Detail';
 
 Vue.use(Router);
 
@@ -21,7 +20,8 @@ export default new Router({
         }, {
             path: '/detail/:id',
             name: 'Detail',
-            component: Detail,
+            // 当整个文件过大的时候, 我们可以采用异步组件, 进行代码的拆分
+            component: () => import('@/views/Detail'),
         },
     ],
     scrollBehavior() {

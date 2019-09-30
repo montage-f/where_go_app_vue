@@ -29,13 +29,13 @@
 </template>
 
 <script>
-    import Gallery from '@/components/common/Gallery';
     import FadeAnimation from '@/components/common/Fade';
 
     export default {
         name: 'Banner',
         components: {
-            Gallery,
+            // 组件内部也可以使用了异步组件
+            Gallery: () => import('@/components/common/Gallery'),
             FadeAnimation,
         },
         data() {
