@@ -1,29 +1,34 @@
-# where_go_app_vue
-
-## Project setup
+# where_to_go_app_vue
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+运行方式:
+1. npm install
+2. npm run
 ```
 
-### Compiles and minifies for production
+### 项目总结
 ```
-npm run build
-```
+该项目一共完成了三个模块, 
+1. 首页
+2. 详情页
+3. 城市列表页
 
-### Run your tests
-```
-npm run test
-```
+1. 将首页分成四个组件, 分别是Header, Icons, Recommend, Weekend
+    1. Header 是首页的头部栏, 这里面的细节是将头部的公共背景色, 提出来作为一个变量存储, 后面方便其他组件调用
+    2. Icons 是一个图形轮播图
+    3. Recommend 是一个推荐组件
+    4. Weekend 是周末游组件
+2. 详情页
+    1. 详情页的头部与滚动事件有一个互动, 当滚动距离大于一个值得时候, 头部的样式以渐变的方式显示, 否则隐藏
+    2. 详情列表项, 则采用了递归组件, 展示数据下面的子数据.
+3. 城市列表
+    1. 城市列表涉及到了与父组件和它自己的子组件之间有互动, 所以采用了vuex来管理状态, 
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+### 技术介绍
+1. 采用了vue, vue-router, vuex来搭建前端项目, 在ui框架上采用的vant, 与后端的交互采用的是axios,
+2. 项目中使用了异步组件, 来将js代码进行拆分, 
+3. 采用了keep-alive组件, 来对项目的组件进行性能优化.
+4. 使用了transition 组件来完成项目的过度动画,  
+5. 使用了localStorage进行本地的数据存储, 用来减少http请求, 和在页面刷新时, 方式数据重置.
+6. 采用less预编译, 方便css代码的编写和管理, 抽出公共样式, 进行统一管理
