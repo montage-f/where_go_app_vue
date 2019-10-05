@@ -22,6 +22,10 @@ export default new Router({
             name: 'Detail',
             // 当整个文件过大的时候, 我们可以采用异步组件, 进行代码的拆分
             component: () => import('@/views/Detail'),
+        }, {
+            path: '/live',
+            name: 'Live',
+            component: () => import('@/views/Live'),
         },
     ],
     scrollBehavior() {
